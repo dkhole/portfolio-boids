@@ -11,7 +11,7 @@
     <script src="./scripts/boid.js"></script>
 </head>
 <body>
-    <main id="main-wrapper">
+    <div id="main-wrapper">
         <nav>
             <div class="page-indicator"></div>
             <div class="page-indicator"></div>
@@ -19,22 +19,22 @@
             <div class="page-indicator"></div>
             <div class="page-indicator"></div>
         </nav>
-        <section id="landing-wrap">
-            <div id="triangle-wrap">
-                <svg id="sarah" width="288" height="250" viewBox="0 0 288 310" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M285.728 154.737L2.26074 307.578L103.556 1.87691L285.728 154.737Z" stroke="#12F251" stroke-width="2"/>
-                </svg>
-            </div>
-            <h1>Daniel J. Lee</h1>
-            <span>Sydney based web developer.</span>
-            <button>Click for recent projects</button>
-        </section>
-        <section id="boids-wrap">
+        <div id="landing-wrap">
+                <div id="triangle-wrap">
+                    <svg id="sarah" width="288" height="250" viewBox="0 0 288 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M285.728 154.737L2.26074 307.578L103.556 1.87691L285.728 154.737Z" stroke="#12F251" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h1>Daniel J. Lee</h1>
+                <span>Sydney based web developer.</span>
+                <button>Click for recent projects</button>
+        </div>
+        <div id="boids-wrap">
             <div class="opaque-rect">
                 <span>Each triangle you see represents a <span class="green">boid</span> which follow a set of simple rules. When multiple boids interact, these rules although simple create a <span class="blue">flocking</span> effect showcasing a great example of <span class="yellow">emergent behaviour</span>.</span>
             </div>
-        </section>
-        <section id="boids-interactive-wrap">
+        </div>
+        <div id="boids-interactive-wrap">
             <div id="sliders-content-wrap" >
                 <h1>The three main rules are as follows</h1>
                 <div id="sliders-wrap">
@@ -44,8 +44,8 @@
                 </div>
             </div>
             <div id="extra-info">Hover over the rules for more info and play with the sliders to see the effects</div>
-        </section>
-        <section id="optimise-wrap">
+        </div>
+        <div id="optimise-wrap">
             <div class="opaque-rect">
                 <span>The <span class="green">boids</span> struggled to maintain a good frame rate on mobile so i had to use a <span class="blue">quadtree</span> to optimise the program. Before implementing the data structure the program was limited to a maximum of 50 boids on mobile, now it can handle up to <span class="yellow">100</span>.</span>
             </div>
@@ -53,8 +53,8 @@
                 <button id="opt-button">Click here to visualise the quadtree </button>
                 <span>(Warning: will cause a steep drop in frame rates, best on desktop)</span>
             </div>
-        </section>
-        <section id="projects-wrap">
+        </div>
+        <div id="projects-wrap">
             <div id="title-wrap">
                 <h1>Recent Projects</h1>
             </div>
@@ -127,8 +127,10 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+    
+    
 </body>
 <script src="./scripts/sketch.js"></script>
 <script src="./scripts/script.js"></script>
