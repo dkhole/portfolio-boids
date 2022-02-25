@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    <title>Boids</title>
+    <link rel="stylesheet" href="styles.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="./scripts/quadtree.js"></script>
+    <script src="./scripts/boid.js"></script>
+</head>
+<body>
+    <main id="main-wrapper">
+        <nav>
+            <div class="page-indicator"></div>
+            <div class="page-indicator"></div>
+            <div class="page-indicator"></div>
+            <div class="page-indicator"></div>
+            <div class="page-indicator"></div>
+        </nav>
+        <section id="landing-wrap">
+            <div id="triangle-wrap">
+                <svg id="sarah" width="288" height="250" viewBox="0 0 288 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M285.728 154.737L2.26074 307.578L103.556 1.87691L285.728 154.737Z" stroke="#12F251" stroke-width="2"/>
+                </svg>
+            </div>
+            <h1>Daniel J. Lee</h1>
+            <span>Sydney based web developer.</span>
+            <button>Click for recent projects</button>
+        </section>
+        <section id="boids-wrap">
+            <div class="opaque-rect">
+                <span>Each triangle you see represents a <span class="green">boid</span> which follow a set of simple rules. When multiple boids interact, these rules although simple create a <span class="blue">flocking</span> effect showcasing a great example of <span class="yellow">emergent behaviour</span>.</span>
+            </div>
+        </section>
+        <section id="boids-interactive-wrap">
+            <div id="sliders-content-wrap" >
+                <h1>The three main rules are as follows</h1>
+                <div id="sliders-wrap">
+                    <div class="slider"><span class="green">separation</span><div class="input-wrap" id="separation-wrap"></div></div>
+                    <div class="slider"><span class="blue">alignment</span><div class="input-wrap" id="align-wrap"></div></div>
+                    <div class="slider"><span class="yellow">cohesion</span><div class="input-wrap" id="cohesion-wrap"></div></div>
+                </div>
+            </div>
+            <div id="extra-info">Hover over the rules for more info and play with the sliders to see the effects</div>
+        </section>
+        <section id="optimise-wrap">
+            <div class="opaque-rect">
+                <span>The <span class="green">boids</span> struggled to maintain a good frame rate on mobile so i had to use a <span class="blue">quadtree</span> to optimise the program. Before implementing the data structure the program was limited to a maximum of 50 boids on mobile, now it can handle up to <span class="yellow">100</span>.</span>
+            </div>
+            <div id="opt-button-wrap">
+                <button id="opt-button">Click here to visualise the quadtree </button>
+                <span>(Warning: will cause a steep drop in frame rates, best on desktop)</span>
+            </div>
+        </section>
+        <section id="projects-wrap">
+            <div id="title-wrap">
+                <h1>Recent Projects</h1>
+            </div>
+            <div class="projects">
+                <div class="opaque-rect project">
+                    <div class="img-wrap">
+                        <img src="./imgs/noname.gif" alt="Ecommerce website preview">
+                    </div>
+                    <div class="project-info">
+                        <h1>NONAME E&#8209;COMMERCE WEBSITE</h1>
+                        <div class="logo-wrap">
+                            <object data="./imgs/next.svg" width="25" height="25"> </object>
+                            <object data="./imgs/react.svg" width="25" height="25"> </object>
+                            <object data="./imgs/emotion.png" width="25" height="25"> </object>
+                            <object data="./imgs/shopify.svg" width="25" height="25"> </object>
+                            <object data="./imgs/typescript.svg" width="25" height="25"> </object>
+                            <object data="./imgs/graphQl.svg" width="25" height="25"> </object>
+                        </div>
+                        <div>
+                            <span>Currently building an online store for a client using Nextjs with TS for the front&#8209;end, Emotion CSS for CSS&#8209;in&#8209;JS and shopify's storefront API for the backend. Core website is complete but still waiting on the client to provide a few more pages and a domain name.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="opaque-rect project">
+                    <div class="img-wrap">
+                        <img src="./imgs/cli.gif" alt="Cli tool preview">
+                    </div>
+                    <div class="project-info">
+                        <h1>WEBSCRAPER & AUTOMATION CLI TOOLS</h1>
+                        <div class="logo-wrap">
+                            <object data="./imgs/javascript.svg" width="25" height="25"> </object>
+                            <object data="./imgs/nodejs.svg" width="25" height="25"> </object>
+                        </div>
+                        <div>
+                            <span>Client wanted a way to scrape data from a website to analyse trends in the furniture category so i created this webscraper using node js to scrape and email data in a csv format to the client. It was a good experiece having to work with and document for non-technical users. I used the Puppeteer library for the automation tool to programatically login to a website and send messages to selected users.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="opaque-rect project">
+                    <div class="img-wrap">
+                        <img src="./imgs/physio.gif" alt="Physiotherapy website preview">
+                    </div>
+                    <div class="project-info">
+                        <h1>PHYSIOTHERAPHY BUSINESS WEBSITE</h1>
+                        <div class="logo-wrap">
+                            <object data="./imgs/gatsby.svg" width="25" height="25"> </object>
+                            <object data="./imgs/react.svg" width="25" height="25"> </object>
+                            <object data="./imgs/netlify.svg" width="25" height="25"> </object>
+                            <object data="./imgs/graphQl.svg" width="25" height="25"> </object>
+                        </div>
+                        <div>
+                            <span>Initially designed with Figma and then developed using Gatsby.js with CSS modules. Client wanted control over the content but not the styling so i chose to use Netlify CMS for ease of setup. This project was started a while ago when Gatsby was known to be better for SEO but if i was to do it again i would choose Nextjs. Just discussed a redesign with the client so will be migrating soon.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="opaque-rect project">
+                    <div class="img-wrap">
+                        <img src="./imgs/games.gif" alt="Physiotherapy website preview">
+                    </div>
+                    <div class="project-info">
+                        <h1>GAME DEVELOPMENT</h1>
+                        <div class="logo-wrap">
+                            <object data="./imgs/unity.svg" width="25" height="25"> </object>
+                            <object data="./imgs/Godot.svg" width="25" height="25"> </object>
+                            <object data="./imgs/unreal.svg" width="25" height="25"> </object>
+                        </div>
+                        <div>
+                            <span>I like to practice game development during my free time, it feels like a bit of a programming workout as i enjoy the different challenges it presents as opposed to web development. I currently use Unity for 3D and Godot for 2D but want to transition away from Unity to Unreal. </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="./scripts/sketch.js"></script>
+<script src="./scripts/script.js"></script>
+</html>

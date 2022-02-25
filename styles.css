@@ -1,0 +1,508 @@
+@font-face {
+  font-family: FoundersGrotesk-Bold;
+  src: url("./fonts/FoundersGrotesk-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: FoundersGrotesk-Light;
+  src: url("./fonts/FoundersGrotesk-Light.woff") format("woff");
+}
+
+:root {
+  --green: #4b9c54;
+  --blue: #6fa5f5;
+  --yellow: #dfae50;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: white;
+  font-family: FoundersGrotesk-Bold;
+  font-size: 100%;
+}
+
+.green {
+  color: var(--green);
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: FoundersGrotesk-Bold;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(141, 141, 141, 0.39);
+  transition: ease-out color 2s;
+}
+
+button:hover {
+  color: rgba(255, 255, 255, 0.863);
+}
+
+nav {
+  position: fixed;
+  top: calc(50% - 60px);
+  height: 120px;
+}
+
+nav > div {
+  height: 7px;
+  width: 7px;
+  border-radius: 100%;
+  background: none;
+  border: 1px solid white;
+  margin: 10px;
+}
+
+#main-wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  margin: 0;
+}
+
+#main-wrapper > div {
+  scroll-snap-align: start;
+}
+
+#landing-wrap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+#triangle-wrap {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sarah {
+  transform: rotate(5deg);
+  margin-bottom: 7px;
+  z-index: 0;
+  height: 175px;
+}
+
+#sarah path {
+  stroke: #ff0000;
+  animation: bgColor 15s infinite linear;
+}
+
+#landing-wrap h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 50px;
+  z-index: 1;
+}
+
+#landing-wrap span {
+  font-family: FoundersGrotesk-Light;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  letter-spacing: 2.5px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+#landing-wrap button {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+}
+
+#boids-wrap {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+#boids-wrap div {
+  width: 250px;
+  font-size: 1.75rem;
+}
+
+#boids-interactive-wrap {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+  position: relative;
+}
+
+#sliders-content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#sliders-content-wrap h1 {
+  width: 100%;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#extra-info {
+  position: absolute;
+  bottom: 200px;
+  font-size: 1.5rem;
+  padding: 15px;
+  color: rgba(141, 141, 141, 0.39);
+  transition: ease-out color 2s;
+}
+
+#extra-info:hover {
+  color: rgba(255, 255, 255, 0.863);
+}
+
+.slider span {
+  width: 100px;
+  font-size: 1.1rem;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap input {
+  width: 180px;
+  background-color: transparent;
+  /* Removes some defaults */
+  -webkit-appearance: none;
+}
+
+.input-wrap input::-webkit-slider-runnable-track {
+  background: #2e2836;
+  height: 15px;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  /* Turns the cursor into the hand pointer icon when hovering over the slider  */
+  cursor: pointer;
+}
+
+.input-wrap input::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  /* negative top padding moves it up */
+  margin-top: 0px;
+  /* Border radius gives rounded corners, if they're big enough, you end up with circles */
+  border-radius: 3px;
+}
+
+#optimise-wrap {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+#optimise-wrap > .opaque-rect {
+  position: absolute;
+  width: 250px;
+  font-size: 1.5rem;
+  top: 50px;
+  left: 0;
+  right: 0;
+}
+
+#opt-button-wrap {
+  position: absolute;
+  bottom: 100px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#opt-button-wrap > span {
+  font-size: 0.75rem;
+  color: rgba(141, 141, 141, 0.39);
+}
+
+.opaque-rect {
+  margin: auto;
+  padding: 35px;
+  background: rgba(199, 199, 199, 0.062);
+  border-radius: 20px;
+}
+
+#projects-wrap {
+  width: 100vw;
+  height: auto;
+}
+
+#projects-wrap > #title-wrap {
+  font-size: 1.25rem;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#title-wrap h1 {
+  margin: 0;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects > .project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 40px;
+  width: 250px;
+}
+
+.project-info {
+  width: 250px;
+}
+
+.project-info h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project-info span {
+  font-family: FoundersGrotesk-Light;
+}
+
+.img-wrap img {
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .opaque-rect {
+    -webkit-backdrop-filter: saturate(10) blur(5px);
+    backdrop-filter: saturate(10) blur(5px);
+  }
+}
+
+@media (min-width: 800px) {
+  #triangle-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #sarah {
+    transform: rotate(5deg);
+    margin-bottom: 7px;
+    z-index: 0;
+    width: 280px;
+    height: 250px;
+  }
+
+  #landing-wrap h1 {
+    font-size: 5rem;
+    line-height: 75px;
+  }
+
+  #landing-wrap span {
+    font-size: 1.1rem;
+  }
+
+  #landing-wrap button {
+    font-size: 2.5rem;
+  }
+
+  #boids-wrap > div {
+    padding: 70px;
+    width: min(900px, 50vw);
+    font-size: min(2.5rem, 3vw);
+  }
+
+  #boids-interactive-wrap {
+    padding: 0;
+  }
+
+  #sliders-content-wrap {
+    height: auto;
+    width: max(500px);
+    margin: 0;
+    position: absolute;
+    left: 150px;
+    margin-top: 100px;
+  }
+  #sliders-content-wrap h1 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    text-align-last: left;
+  }
+
+  #sliders-wrap {
+    width: 100%;
+    padding-top: 15px;
+  }
+
+  .slider span {
+    font-size: 2rem;
+    width: 190px;
+  }
+
+  .input-wrap {
+    width: calc(100% - 190px);
+  }
+
+  .input-wrap input {
+    width: 90%;
+  }
+
+  .input-wrap input::-webkit-slider-runnable-track {
+    height: 20px;
+  }
+
+  .input-wrap input::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  #extra-info {
+    width: 550px;
+    left: 150px;
+    bottom: 100px;
+    font-size: 2.5rem;
+    padding: 15px;
+  }
+
+  #optimise-wrap {
+    padding-top: 0;
+    position: relative;
+  }
+
+  #optimise-wrap > .opaque-rect {
+    width: min(900px, 50vw);
+    font-size: min(2.5rem, 3vw);
+  }
+
+  #opt-button-wrap {
+    bottom: 100px;
+  }
+
+  #opt-button-wrap > button {
+    font-size: min(2.5rem, 3vw);
+  }
+
+  #opt-button-wrap > span {
+    font-size: min(1rem, 1.5vw);
+  }
+
+  #title-wrap > h1 {
+    font-size: min(4.75rem, 5vw);
+  }
+
+  .projects > .project {
+    flex-direction: row-reverse;
+    gap: 100px;
+    width: auto;
+  }
+
+  .img-wrap img {
+    height: 275px;
+    width: 300px;
+  }
+
+  .project-info {
+    width: min(500px, 30vw);
+  }
+
+  .project-info > h1 {
+    font-size: min(2rem, 3vw);
+    text-align: left;
+  }
+
+  .logo-wrap {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    margin-bottom: 35px;
+  }
+
+  .project-info span {
+    font-size: min(1.25rem, 1.5vw);
+    letter-spacing: 1px;
+  }
+
+  .logo-wrap object {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+@keyframes bgColor {
+  12.5% {
+    stroke: #ff0000;
+  }
+  25% {
+    stroke: #ffa500;
+  }
+  37.5% {
+    stroke: #ffff00;
+  }
+  50% {
+    stroke: #7fff00;
+  }
+  62.5% {
+    stroke: #00ffff;
+  }
+  75% {
+    stroke: #0000ff;
+  }
+  87.5% {
+    stroke: #9932cc;
+  }
+  100% {
+    stroke: #ff1493;
+  }
+}
