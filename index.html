@@ -5,21 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
     <title>Boids</title>
+    <link rel="stylesheet" href="loader.css"></link>
     <link rel="stylesheet" href="styles.css"></link>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="./scripts/load.js"></script>
     <script src="./scripts/quadtree.js"></script>
     <script src="./scripts/boid.js"></script>
 </head>
 <body>
+    <div id="loader">LOADING<div class="dot-bricks"></div></div>
     <div id="main-wrapper">
-        <nav>
-            <div class="page-indicator"></div>
-            <div class="page-indicator"></div>
-            <div class="page-indicator"></div>
-            <div class="page-indicator"></div>
-            <div class="page-indicator"></div>
+        <nav id="nav-circles">
+            <a href="#landing-wrap"><div class="page-indicator"></div></a>
+            <a href="#boids-wrap"><div class="page-indicator"></div></a>
+            <a href="#boids-interactive-wrap"><div class="page-indicator"></div></a>
+            <a href="#optimise-wrap"><div class="page-indicator"></div></a>
+            <a href="#projects-wrap"><div class="page-indicator"></div></a>
         </nav>
-        <div id="landing-wrap">
+        <div id="landing-wrap" >
                 <div id="triangle-wrap">
                     <svg id="sarah" width="288" height="250" viewBox="0 0 288 310" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M285.728 154.737L2.26074 307.578L103.556 1.87691L285.728 154.737Z" stroke="#12F251" stroke-width="2"/>
