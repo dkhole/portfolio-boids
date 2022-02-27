@@ -5,7 +5,7 @@ const pageIndicators = document.getElementsByClassName("page-indicator");
 
 const clearIndicators = () => {
   pageIndicators.forEach((indicator) => {
-    indicator.style.backgroundColor = "black";
+    indicator.style.background = "none";
   });
 };
 
@@ -31,3 +31,11 @@ const setPageIndicator = () => {
 main.addEventListener("scroll", setPageIndicator);
 
 setPageIndicator();
+
+const carousel = document.getElementById("projects-carousel");
+
+carousel.addEventListener("wheel", function (e) {
+  console.log(e.deltaY);
+  if (e.deltaY > 0) carousel.scrollLeft += 100;
+  else carousel.scrollLeft -= 100;
+});
