@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
     <title>Boids</title>
-    <link rel="stylesheet" href="loader.css"></link>
     <link rel="stylesheet" href="styles.css"></link>
+    <link rel="stylesheet" href="loader.css"></link>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
     <script src="./scripts/load.js"></script>
     <script src="./scripts/quadtree.js"></script>
@@ -30,31 +30,35 @@
                 </div>
                 <h1>Daniel J. Lee</h1>
                 <span>Sydney based web developer.</span>
-                <button>Click for recent projects</button>
+                <a href="#projects-wrap"><button class="opaque-button">Click for recent projects</button></a>
         </div>
         <div id="boids-wrap">
             <div class="opaque-rect">
-                <span>Each triangle you see represents a <span class="green">boid</span> which follow a set of simple rules. When multiple boids interact, these rules although simple create a <span class="blue">flocking</span> effect showcasing a great example of <span class="yellow">emergent behaviour</span>.</span>
+                <span>Each triangle you see represents a <a href="https://en.wikipedia.org/wiki/Boids"><span class="green">boid</span></a> which follow a set of simple rules. When multiple boids interact, these rules although simple create a <a href="https://en.wikipedia.org/wiki/Flocking_(behavior)"><span class="blue">flocking</span></a> effect showcasing a great example of <a href="https://en.wikipedia.org/wiki/Emergence"><span class="yellow">emergent behaviour</span></a>.</span>
             </div>
         </div>
         <div id="boids-interactive-wrap">
             <div id="sliders-content-wrap" >
                 <h1>The three main rules are as follows</h1>
                 <div id="sliders-wrap">
-                    <div class="slider"><span class="green">separation</span><div class="input-wrap" id="separation-wrap"></div></div>
-                    <div class="slider"><span class="blue">alignment</span><div class="input-wrap" id="align-wrap"></div></div>
-                    <div class="slider"><span class="yellow">cohesion</span><div class="input-wrap" id="cohesion-wrap"></div></div>
+                    <div class="slider"><button id="separation" class="green">separation</button><div class="input-wrap" id="separation-wrap"></div></div>
+                    <div class="slider"><button id="alignment" class="blue">alignment</button><div class="input-wrap" id="align-wrap"></div></div>
+                    <div class="slider"><button id="cohesion" class="yellow">cohesion</button><div class="input-wrap" id="cohesion-wrap"></div></div>
                 </div>
             </div>
-            <div id="extra-info">Hover over the rules for more info and play with the sliders to see the effects</div>
+            <div id="rules-info">
+                <span id="separation-info" class="hidden">Each boid must steer to avoid crowding flockmates.</span>
+                <span id="alignment-info" class="hidden">Each boid must steer towards the average heading of local flockmates</span>
+                <span id="cohesion-info" class="hidden">Each boid must steer to move towards the average position (center of mass) of local flockmates</span>
+            </div>
+            <div id="extra-info">Click the rules for more info and play with the sliders to see the effects</div>
         </div>
         <div id="optimise-wrap">
             <div class="opaque-rect">
-                <span>The <span class="green">boids</span> struggled to maintain a good frame rate on mobile so i had to use a <span class="blue">quadtree</span> to optimise the program. Before implementing the data structure the program was limited to a maximum of 50 boids on mobile, now it can handle up to <span class="yellow">100</span>.</span>
+                <span>The <span class="green">boids</span> struggled to maintain a good frame rate on mobile so i had to use a <span class="blue">quadtree</span> to optimise the program. Before implementing the data structure it was limited to a maximum of 50 boids on mobile, now it can handle up to <span class="yellow">100 without slowing down</span>.</span>
             </div>
             <div id="opt-button-wrap">
-                <button id="opt-button">Click here to visualise the quadtree </button>
-                <span>(Warning: will cause a steep drop in frame rates, best on desktop)</span>
+                <button id="opt-button" class="opaque-button">Click here to visualise the quadtree </button>
             </div>
         </div>
         <div id="projects-wrap">
@@ -135,8 +139,7 @@
 
         </div>
     </div>
-    
-    
+    <section id="p5-wrap"></section>
 </body>
 <script src="./scripts/sketch.js"></script>
 <script src="./scripts/script.js"></script>

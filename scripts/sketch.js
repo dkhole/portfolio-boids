@@ -17,7 +17,12 @@ function updateButton() {
 }
 
 function setup() {
-  createCanvas(w, h);
+  let canv = createCanvas(w, h);
+  const canvWrap = document.getElementById("p5-wrap");
+  let originParent = canv.parent();
+  originParent.remove();
+  canv.parent(canvWrap);
+
   separationSlider = createSlider(0, 5, 1, 0.1).parent("separation-wrap");
   alignSlider = createSlider(0, 5, 1, 0.1).parent("align-wrap");
   cohesionSlider = createSlider(0, 5, 1, 0.1).parent("cohesion-wrap");

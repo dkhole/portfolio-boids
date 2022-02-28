@@ -3,7 +3,7 @@
   width: 100vw;
   overflow: hidden;
   color: white;
-  font-size: 2rem;
+  font-size: 1.75rem;
   z-index: 2;
   background-color: rgb(0, 0, 0);
   display: flex;
@@ -33,7 +33,7 @@
 
 @media (min-width: 800px) {
   #loader {
-    font-size: min(5rem, 4vw);
+    font-size: 2rem;
   }
 
   .dot-bricks {

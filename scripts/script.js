@@ -39,3 +39,62 @@ carousel.addEventListener("wheel", function (e) {
   if (e.deltaY > 0) carousel.scrollLeft += 100;
   else carousel.scrollLeft -= 100;
 });
+
+const separation = document.getElementById("separation");
+const alignment = document.getElementById("alignment");
+const cohesion = document.getElementById("cohesion");
+
+const separationInfo = document.getElementById("separation-info");
+const alignmentInfo = document.getElementById("alignment-info");
+const cohesionInfo = document.getElementById("cohesion-info");
+
+separation.addEventListener("click", () => {
+  //update sliders
+  separationSlider.value(5);
+  alignSlider.value(0);
+  cohesionSlider.value(0);
+
+  //hide other rules
+  alignmentInfo.className = "hidden";
+  cohesionInfo.className = "hidden";
+
+  //reveal separation text
+  separationInfo.className = "visible";
+  setTimeout(() => {
+    separationInfo.className = "hidden";
+  }, 3000);
+});
+
+alignment.addEventListener("click", () => {
+  //update sliders
+  separationSlider.value(0);
+  alignSlider.value(5);
+  cohesionSlider.value(0);
+
+  //hide other rules
+  separationInfo.className = "hidden";
+  cohesionInfo.className = "hidden";
+
+  //reveal separation text
+  alignmentInfo.className = "visible";
+  setTimeout(() => {
+    alignmentInfo.className = "hidden";
+  }, 3000);
+});
+
+cohesion.addEventListener("click", () => {
+  //update sliders
+  separationSlider.value(0);
+  alignSlider.value(0);
+  cohesionSlider.value(5);
+
+  //hide other rules
+  alignmentInfo.className = "hidden";
+  separationInfo.className = "hidden";
+
+  //reveal separation text
+  cohesionInfo.className = "visible";
+  setTimeout(() => {
+    cohesionInfo.className = "hidden";
+  }, 3000);
+});
